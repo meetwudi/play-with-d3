@@ -1,0 +1,16 @@
+{
+  "name": "play-with-d3",
+  "version": "0.0.0",
+  "description": "Learn d3.js (not an open source project)",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Wu <webmaster@leapoahead.com> (https://github.com/tjwudi)",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp-watch": "~0.5.0",
+    "gulp": "~3.5.2",
+    "gulp-livereload": "~1.1.1"
+  }
+}

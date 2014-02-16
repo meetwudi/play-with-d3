@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>Play with D3.js</title>
+</head>
+<body>
+
+<script src="js/d3.v3.min.js"></script>
+<script>
+  var dataArray = [10, 20, 40, 25];
+
+  var canvas = d3.select('body')
+    .append('svg')
+    .attr('height', 500)
+    .attr('width', 500);
+
+  var bars = canvas.selectAll('rect')
+              .data(dataArray)
+              .enter()
+                .append('rect')
+                .attr('width', function(d) { return d * 10; })
+                .attr('height', 30)
+                .attr('y', function(_, i) { return i * 50 });
+
+
+</script>
+</body>
+</html>
