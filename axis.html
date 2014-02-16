@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scale</title>
+</head>
+<body>
+
+<script src="js/d3.v3.min.js"></script>
+<script>
+  var canvasWidth = 500,
+      canvasHeight = 500,
+      barWidth = 10;
+
+  var dataset = [10, 95, 69, 73, 117, 28]; // 0 ~ canvasHeight(150)
+
+  var scale = d3.scale.linear()
+                .domain([0, 150])
+                .range([0, canvasHeight]);
+
+  var axis = d3.svg.axis()
+                .scale(scale);
+
+  var canvas = d3.select('body')
+                  .append('svg')
+                  .style('border', '1px dotted red')
+                  .attr('width', canvasWidth)
+                  .attr('height', canvasHeight);
+  canvas.call(axis);
+
+  var group = canvas.append('g')
+                .attr('transform', 'translate(0, 40)');
+
+  var bars = group.selectAll('rect')
+                .data(dataset)
+                .enter()
+                  .append('rect')
+                  .attr('width', barWidth)
+                  .attr('height', function(d, i) {
+                    return scale(d);
+                  })
+                  .attr('x', function(d, i) {
+                    return i * 20;
+                  });
+</script>
+</body>
+</html>

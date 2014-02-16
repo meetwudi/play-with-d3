@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<script src="js/d3.v3.min.js"></script>
+<script>
+  var canvas = d3.select('body')
+                  .append('svg')
+                    .attr('width', 500)
+                    .attr('height', 500);
+
+  var dataset = [10, 15];
+
+  var prevCircle = canvas.append('circle');
+
+  var circle = canvas.selectAll('circle')
+                  .data(dataset)
+                    .attr('r', function(d) { return d; })
+                    .attr('cx', function(d) { return d; })
+                    .attr('cy', function(d, i) { return i * 30 + 30; })
+                    .attr('fill', '#0074D9')
+                  .enter()
+                    .append('circle')
+                    .attr('r', function(d) { return d; })
+                    .attr('cx', function(d) { return d; })
+                    .attr('cy', function(d, i) { return i * 30 + 30; })
+                    .attr('fill', '#111111');
+
+
+</script>
+</body>
+</html>
